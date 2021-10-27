@@ -64,9 +64,13 @@ class _DialpadState extends State<Dialpad> {
           ),
           Flexible(
             child: GridView.builder(
+                padding: EdgeInsets.symmetric(horizontal: 14, vertical: 60),
+                physics: NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   childAspectRatio: 0.95,
+                  crossAxisSpacing: 15.0,
+                  mainAxisSpacing: 19.0,
                 ),
                 itemCount: 12,
                 itemBuilder: (context, i) {
@@ -74,8 +78,6 @@ class _DialpadState extends State<Dialpad> {
                     onTap: () {
                       setState(() {
                         _controller.text = _controller.text + text[i];
-
-                        print(text[i]);
                       });
 
                       if (i == 9) {
